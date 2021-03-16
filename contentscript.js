@@ -1,4 +1,4 @@
-var reglists={'walmart':/"upc":"(\d{12})"/,'lowes':/"barcode":"(\d{12})"/}//warmart跟target一样
+var reglists={'walmart':/"upc":"(\d{12})"/,'lowes':/"barcode":"(\d{12})"/,'belk':/UPC: (\d{13})/}//warmart跟target一样
 
 
 function httpRequest(url, callback){
@@ -22,13 +22,17 @@ function sendHTML(reglists){
         if(xhtml.match(reglists[key])){
             console.log(xhtml.match(reglists[key]))
             upc=xhtml.match(reglists[key])[1]
-            title=xhtml.match(/<h1.*?>(.*?)</)[1]
+            if(title=xhtml.match(/<h1.*?>(.*?)</)){
+                title=xhtml.match(/<h1.*?>(.*?)</)[1]
+                if(title.length<3){
+                    if(title=xhtml.match(/"Product","name":"(.*?)"/)){
+                        title=xhtml.match(/"Product","name":"(.*?)"/)[1]
+                    }//target title
+                }
+            }else{title=''}
+            
 
-            if(title.length<3){
-                if(title=xhtml.match(/"Product","name":"(.*?)"/)){
-                    title=xhtml.match(/"Product","name":"(.*?)"/)[1]
-                }//target title
-            }
+ 
         //    console.log(upc)
          //   console.log(title)
             break;
