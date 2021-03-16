@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>
+           Getting Started Extension's Popup
+        </title>
+      <script type="text/javascript" src="jquery.js">
+
+        </script>
+              <style>
+                #box{
+                    width:200px;
+                    height:100px;
+                }
+                div{
+                  margin: 10px;
+                }
+                </style>
+     <script src="popup.js">
+       </script>
+    </head>
+  <body>
+      <div id='box'>查询upc插件,请页面加载完后在点击，现在支持walmart,target,lowes,衣服变体多请选择后点击2次，若不出现请刷新下页面,若出现loading，多点击2次</div>
+
+     <div id="r">
+         
+     </div>
+     <button id="go" disable=true>UPC一键前往亚马逊</button>
+     <!-- <div id='hasupc'>正在获取亚马逊是否有商品。。</div> -->
+     <div id='title'></div>
+     <div><button id="gotitle" disable=true>标题一键前往亚马逊</button></div>
+   </body>
+ 
+</html>
